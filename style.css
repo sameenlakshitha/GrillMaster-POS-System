@@ -2427,7 +2427,7 @@ img {
     margin-bottom: 24px;
 }
 
-.contact-section .contact-field label {
+.contact-section .contactSubject label {
     display: block;
     font-size: 14px;
     font-weight: 700;
@@ -2435,9 +2435,9 @@ img {
     margin-bottom: 8px;
 }
 
-.contact-section .contact-field input,
-.contact-section .contact-field select,
-.contact-section .contact-field textarea {
+.contact-section .contactSubject input,
+.contact-section .contactSubject select,
+.contact-section .contactSubject textarea {
     width: 100%;
     padding: 14px 16px;
     border: 1px solid #e2e2e2;
@@ -2450,14 +2450,14 @@ img {
     transition: border-color 0.2s ease;
 }
 
-.contact-section .contact-field input::placeholder,
-.contact-section .contact-field textarea::placeholder {
+.contact-section .contactSubject input::placeholder,
+.contact-section .contactSubject textarea::placeholder {
     color: #b0b0b0;
 }
 
-.contact-section .contact-field input:focus,
-.contact-section .contact-field select:focus,
-.contact-section .contact-field textarea:focus {
+.contact-section .contactSubject input:focus,
+.contact-section .contactSubject select:focus,
+.contact-section .contactSubject textarea:focus {
     border-color: #e8482c;
 }
 
@@ -2465,9 +2465,21 @@ img {
     margin-bottom: 30px;
 }
 
-.contact-section .contact-field textarea {
+.contact-section .contactSubject textarea {
     resize: vertical;
     min-height: 140px;
+}
+
+.contact-section .contact-actions {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 234px));
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.contact-section .contact-actions > button {
+    justify-content: center;
+    padding: 16px 12px;
 }
 
 .contact-section .contact-submit {
@@ -2478,7 +2490,6 @@ img {
     color: #fff;
     border: none;
     border-radius: 10px;
-    padding: 16px 30px;
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
@@ -2494,6 +2505,12 @@ img {
     font-size: 14px;
     transform: rotate(45deg);
     display: inline-block;
+}
+
+@media (max-width: 480px) {
+    .contact-section .contact-actions {
+        grid-template-columns: 1fr;
+    }
 }
 
 /* ---------- responsive ---------- */
@@ -3479,4 +3496,206 @@ body {
 .back-top-btn:hover {
     background-color: #ec3333;
     box-shadow: 0 0 20px rgba(236, 51, 51, 0.4);
+}
+
+#contactStatus {
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+    animation: contactFade 0.4s ease;
+}
+@keyframes contactFade {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#floatingCart {
+    position: fixed;
+    bottom: 30px;
+    left: 30px;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ec3333;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 15px 22px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    box-shadow: 0 8px 30px #ec333350;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(30px);
+    transition: all 0.3s ease;
+}
+#floatingCart.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+#floatingCart:hover {
+    background: #c91f1f;
+    transform: translateY(-4px);
+}
+#cartCount {
+    background: white;
+    color: #ec3333;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: grid;
+    place-items: center;
+}
+.mhrt {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.mhrt.selected {
+    background: #ec3333;
+    color: white;
+}
+.mhrt.selected i {
+    color: white;
+}
+#cartModal {
+    width: 480px;
+    max-width: 92vw;
+    max-height: 85vh;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 24px;
+    padding: 28px;
+    margin: auto;
+    background: #fffaf5;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 20px 80px #00000040;
+}
+#cartModal::backdrop {
+    background: #00000080;
+    backdrop-filter: blur(10px);
+}
+#cartModal[open] {
+    animation: cartAppear 0.35s ease;
+}
+@keyframes cartAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9) translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+.cart-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 25px;
+}
+.cart-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin: 0;
+}
+.cart-header p {
+    font-size: 13px;
+    color: #888;
+    margin: 5px 0;
+}
+#closeCart {
+    border: none;
+    border-radius: 50%;
+    background: #eee5df;
+    width: 35px;
+    height: 35px;
+    font-size: 24px;
+    cursor: pointer;
+}
+.cart-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid #e8dfd7;
+}
+.cart-item img {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+.cart-item-info {
+    flex: 1;
+}
+.cart-item-info h4 {
+    margin: 0 0 5px;
+    font-size: 15px;
+}
+.cart-item-price {
+    color: #ec3333;
+    font-weight: 800;
+    margin: 5px 0;
+}
+.cart-quantity {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+.cart-quantity button {
+    border: 1px solid #e4d9d0;
+    background: white;
+    border-radius: 7px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+}
+.cart-remove {
+    border: none;
+    background: transparent;
+    color: #ec3333;
+    cursor: pointer;
+    font-size: 16px;
+}
+.cart-summary {
+    margin-top: 25px;
+}
+.cart-summary-row {
+    display: flex;
+    justify-content: space-between;
+    margin: 12px 0;
+}
+.cart-total {
+    font-size: 20px;
+    font-weight: 800;
+    color: #ec3333;
+}
+#checkoutBtn {
+    width: 100%;
+    background: #ec3333;
+    color: white;
+    border: none;
+    padding: 16px;
+    border-radius: 12px;
+    font-weight: 700;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+#checkoutBtn:hover {
+    background: #c91f1f;
+}
+#checkoutBtn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
 }
