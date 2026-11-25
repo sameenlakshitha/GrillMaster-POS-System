@@ -3699,3 +3699,194 @@ body {
     opacity: 0.5;
     cursor: not-allowed;
 }
+
+#checkoutModal {
+    width: 480px;
+    max-width: 92vw;
+    max-height: 85vh;
+    box-sizing: border-box;
+    border: none;
+    border-radius: 24px;
+    padding: 28px;
+    margin: auto;
+    background: #fffaf5;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 20px 80px #00000040;
+    overflow-y: auto;
+}
+#checkoutModal::backdrop {
+    background: #00000080;
+    backdrop-filter: blur(10px);
+}
+#checkoutModal[open] {
+    animation: cartAppear 0.35s ease;
+}
+.checkout-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 20px;
+}
+.checkout-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    margin: 0;
+}
+.checkout-header p {
+    font-size: 13px;
+    color: #888;
+    margin: 5px 0;
+}
+#checkoutModal h3 {
+    font-size: 16px;
+    margin: 18px 0;
+}
+#checkoutModal h3 i {
+    color: #ec3333;
+    margin-right: 6px;
+}
+#closeCheckout {
+    width: 35px;
+    height: 35px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: #eee5df;
+    font-size: 24px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+}
+.checkout-field {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 15px;
+}
+.checkout-field label {
+    font-size: 13px;
+    font-weight: 700;
+}
+.checkout-field input,
+.checkout-field textarea {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 13px;
+    border: 1px solid #e4d9d0;
+    border-radius: 10px;
+    background: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+.checkout-field input:focus,
+.checkout-field textarea:focus {
+    border-color: #ec3333;
+    box-shadow: 0 0 0 3px #ec333315;
+}
+.checkout-field textarea {
+    resize: vertical;
+}
+#detectLocation {
+    width: 100%;
+    padding: 12px;
+    border: 1px dashed #ec3333;
+    border-radius: 10px;
+    background: #fff0ed;
+    color: #ec3333;
+    font-family: 'Nunito', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+}
+#locationStatus {
+    font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+#checkoutModal hr {
+    border: none;
+    border-top: 1px solid #e4d9d0;
+    margin: 20px 0;
+}
+.payment-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 15px;
+    margin-bottom: 10px;
+    border: 1px solid #e4d9d0;
+    border-radius: 12px;
+    background: white;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+.payment-option:has(input:checked) {
+    border-color: #ec3333;
+    background: #fff0ed;
+}
+.payment-option i {
+    color: #ec3333;
+    font-size: 18px;
+}
+.payment-option input {
+    margin-left: auto;
+    accent-color: #ec3333;
+}
+#demoCard {
+    background: linear-gradient(135deg, #171717, #7d2020);
+    border-radius: 18px;
+    color: white;
+    padding: 23px;
+    margin-top: 15px;
+    box-shadow: 0 10px 25px #00000025;
+    animation: cartAppear 0.4s ease;
+}
+#demoCard i {
+    font-size: 28px;
+    color: #eac079;
+}
+#demoCard p {
+    font-size: 11px;
+    letter-spacing: 3px;
+}
+#demoCard h3 {
+    letter-spacing: 4px;
+    font-size: 20px;
+}
+#demoCard small {
+    color: #e0c9c9;
+}
+#placeOrderBtn {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: #ec3333;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+#placeOrderBtn:hover {
+    background: #c91f1f;
+}
+#backToCart {
+    display: block;
+    margin: 15px auto 0;
+    padding: 8px;
+    border: none;
+    background: transparent;
+    box-shadow: none;
+    color: #777;
+    font-family: 'Nunito', sans-serif;
+    cursor: pointer;
+}
+#checkoutStatus {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
+}

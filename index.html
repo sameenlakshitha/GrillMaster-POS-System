@@ -1163,13 +1163,75 @@
         </div>
         <button id="checkoutBtn" type="button">Proceed to Checkout →</button>
     </dialog>
+    <dialog id="checkoutModal">
+        <div class="checkout-header">
+            <div>
+                <h2>Checkout</h2>
+                <p>One step closer to deliciousness.</p>
+            </div>
+            <button id="closeCheckout" type="button">×</button>
+        </div>
+        <form id="checkoutForm">
+            <h3><i class="fa-solid fa-location-dot"></i> Delivery Information</h3>
+            <div class="checkout-field">
+                <label>Full Name *</label>
+                <input type="text" id="orderName" placeholder="Enter your full name" required>
+            </div>
+            <div class="checkout-field">
+                <label>Phone Number *</label>
+                <input type="tel" id="orderPhone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="checkout-field">
+                <label>Delivery Address *</label>
+                <textarea id="orderAddress" rows="3" placeholder="House number, street and city" required></textarea>
+            </div>
+            <button id="detectLocation" type="button">
+                <i class="fa-solid fa-location-crosshairs"></i> Use My Current Location
+            </button>
+            <p id="locationStatus"></p>
+            <hr>
+            <h3><i class="fa-solid fa-wallet"></i> Payment Method</h3>
+            <label class="payment-option">
+                <i class="fa-solid fa-money-bill-wave"></i>
+                <span>Cash on Delivery</span>
+                <input type="radio" name="orderPayment" value="cash" checked>
+            </label>
+            <label class="payment-option">
+                <i class="fa-solid fa-credit-card"></i>
+                <span>Credit / Debit Card</span>
+                <input type="radio" name="orderPayment" value="card">
+            </label>
+            <div id="demoCard" hidden>
+                <i class="fa-solid fa-credit-card"></i>
+                <p>GRILLMASTER TEST CARD</p>
+                <h3>•••• •••• •••• 4242</h3>
+                <small>Simulated payment only</small>
+            </div>
+            <hr>
+            <div class="cart-summary-row">
+                <span>Subtotal</span>
+                <span id="checkoutSubtotal">$0.00</span>
+            </div>
+            <div class="cart-summary-row">
+                <span>Delivery Fee</span>
+                <span style="color: green;">FREE</span>
+            </div>
+            <div class="cart-summary-row cart-total">
+                <span>Total to Pay</span>
+                <span id="checkoutTotal">$0.00</span>
+            </div>
+            <button id="placeOrderBtn" type="submit">Place Order →</button>
+            <p id="checkoutStatus" role="status"></p>
+            <button id="backToCart" type="button">← Back to Cart</button>
+        </form>
+    </dialog>
 
     <script src="Js/testi-carousel.js"></script>
     <script src="Js/app.js"></script>
     <script src="Js/search.js"></script>
     <script src="Js/delivery.js"></script>
-    <script src="js/contact.js"></script>
-    <script src="js/cart.js"></script>
+    <script src="Js/contact.js"></script>
+    <script src="Js/cart.js"></script>
 
 
 </body>
