@@ -163,16 +163,32 @@
                 hospitality.</p>
             <div>
                 <button class="menu" onclick="location.href='#menu'">Explore Menu</button>
-                <div class="watch-story">
+                <div class="watch-story" id="watchStory">
+
                     <div style="margin-left: 30px;" class="play-btn">
                         <svg viewBox="0 0 24 24" class="play-icon">
                             <polygon points="6,4 20,12 6,20" />
                         </svg>
                     </div>
-                    <span
-                        style="font-family: 'Poppins', sans-serif; font-weight: 600; font-size: 17px; color: rgb(255, 255, 255);"
-                        class="watch-text">Watch Our Story</span>
+
+                    <span class="watch-text" style="font-family: 'Poppins', sans-serif;
+                font-weight: 600;
+                font-size: 17px;
+                color: white;">
+                        Watch Our Story
+                    </span>
+
                 </div>
+
+                <dialog id="videoModal">
+
+                    <button class="close-video" id="closeVideo">×</button>
+
+                    <video id="introVideo" controls playsinline>
+                        <source src="assets/videos/GrillMaster%20Intro%20video.mp4" type="video/mp4">
+                    </video>
+
+                </dialog>
                 <div class="stats-wrapper">
                     <div class="stats-row">
                         <div class="stat-item">
@@ -1028,7 +1044,8 @@
     </div>
 
 
-    <script src="testi-carousel.js"></script>
+    <script src="Js/testi-carousel.js"></script>
+    <script src="Js/app.js"></script>
 
 
 </body>

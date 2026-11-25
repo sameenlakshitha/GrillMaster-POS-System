@@ -171,6 +171,10 @@ html {
     background-color: #f3f3f4;
     color: #0d0c22;
     transition: .3s ease;
+
+    font-family: 'Nunito', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
 }
 
 .input::placeholder {
@@ -2942,4 +2946,69 @@ body {
     height: 100vh;
     color: #ffffff;
     text-align: center;
+}
+
+.play-btn {
+    cursor: pointer;
+}
+
+#videoModal {
+    width: 85%;
+    max-width: 1000px;
+    padding: 0;
+    border: none;
+    border-radius: 15px;
+    background: black;
+    margin: auto;
+    overflow: hidden;
+}
+
+#videoModal::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+#introVideo {
+    width: 100%;
+    display: block;
+}
+
+.close-video {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    font-size: 28px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+#videoModal[open] {
+    animation: videoAppear 0.4s ease;
+}
+
+@keyframes videoAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.watch-story {
+    position: relative;
+    z-index: 5;
+    cursor: pointer;
+}
+
+#bg-video {
+    pointer-events: none;
 }
