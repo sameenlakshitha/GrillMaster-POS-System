@@ -3430,3 +3430,53 @@ body {
         animation: none;
     }
 }
+
+.back-top-btn {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-radius: 50%;
+    background-color: #ec3333;
+    border: none;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 4px rgba(236, 51, 51, 0.25);
+    cursor: pointer;
+    overflow: hidden;
+
+    /* Fixed bottom-right position */
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 999;
+
+    /* Hidden initially */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+
+    transition: all 0.3s ease;
+}
+
+/* Visible when scrolling */
+.back-top-btn.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.back-top-btn .svgIcon {
+    width: 15px;
+    height: 20px;
+}
+
+.back-top-btn .svgIcon path {
+    fill: white;
+}
+
+.back-top-btn:hover {
+    background-color: #ec3333;
+    box-shadow: 0 0 20px rgba(236, 51, 51, 0.4);
+}

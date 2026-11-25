@@ -23,3 +23,28 @@ videoModal.addEventListener("close", () => {
 // function delivery(){
 
 // }
+
+const backToTop = document.getElementById("backToTop");
+const offerSection = document.querySelector(".premium-section");
+
+function toggleBackToTop() {
+
+    const sectionTop = offerSection.getBoundingClientRect().top;
+    if (sectionTop <= 100) {
+        backToTop.classList.add("show");
+    } else {
+        backToTop.classList.remove("show");
+    }
+}
+
+window.addEventListener("scroll", toggleBackToTop);
+
+toggleBackToTop();
+
+backToTop.addEventListener("click", () => {
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+});
