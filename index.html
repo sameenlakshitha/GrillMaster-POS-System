@@ -1226,6 +1226,47 @@
         </form>
     </dialog>
 
+    <dialog id="successModal">
+    <div class="success-content">
+        <button id="closeSuccess" type="button" aria-label="Close confirmation">×</button>
+        <div class="success-check">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <h2>Order Successful!</h2>
+        <p id="successMessage"></p>
+        <div class="order-id">
+            ORDER <span id="successOrderId"></span>
+        </div>
+        <hr>
+        <div class="success-truck">🚚</div>
+        <p class="delivery-estimate-label">ESTIMATED DELIVERY TIME</p>
+        <h3 class="delivery-estimate">20 - 35 min</h3>
+        <p class="success-caption">Good food is worth the wait.</p>
+        <hr>
+        <div class="cart-summary-row">
+            <span>Payment Method</span>
+            <strong id="successPayment"></strong>
+        </div>
+        <div class="cart-summary-row">
+            <span>Delivery Address</span>
+            <span id="successAddress"></span>
+        </div>
+        <div class="cart-summary-row">
+            <span>Delivery Fee</span>
+            <span style="color: green;">FREE</span>
+        </div>
+        <div class="cart-summary-row cart-total">
+            <span>Order Total</span>
+            <span id="successTotal"></span>
+        </div>
+        <button id="continueExploring" type="button">
+            Continue Exploring →
+        </button>
+        <p class="success-caption">Made with love. Delivered with care. ❤️</p>
+        <small class="success-caption">Demo order — no real payment or delivery.</small>
+    </div>
+</dialog>
+
     <script src="Js/testi-carousel.js"></script>
     <script src="Js/app.js"></script>
     <script src="Js/search.js"></script>
