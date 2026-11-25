@@ -3012,3 +3012,150 @@ body {
 #bg-video {
     pointer-events: none;
 }
+
+#openSearch {
+    cursor: pointer;
+}
+
+/* Main search window */
+#searchModal {
+    width: 600px;
+    max-width: 90vw;
+    max-height: 85vh;
+    box-sizing: border-box;
+    padding: 0;
+    margin: auto;
+    background: #161412;
+    color: white;
+    border: 1px solid #38332e;
+    border-radius: 14px;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+/* Blur the entire website */
+#searchModal::backdrop {
+    background: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+/* Search bar */
+.search-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 20px;
+    border-bottom: 1px solid #302c28;
+}
+
+.search-top i {
+    color: #999;
+}
+
+#modalSearch {
+    flex: 1;
+    min-width: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    font-size: 17px;
+    box-shadow: none;
+}
+
+#modalSearch:hover,
+#modalSearch:focus {
+    background: transparent;
+    box-shadow: none;
+}
+
+#modalSearch::placeholder {
+    color: #888;
+}
+
+/* Escape button */
+#closeSearch {
+    background: #24211e;
+    color: #aaa;
+    border: 1px solid #38332e;
+    border-radius: 5px;
+    padding: 5px 8px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.search-label {
+    color: #999;
+    font-size: 11px;
+    letter-spacing: 2px;
+    padding: 0 20px;
+}
+
+/* Results */
+#searchResults {
+    max-height: 320px;
+    overflow-y: auto;
+    padding: 8px;
+}
+
+.search-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    padding: 13px;
+    background: transparent;
+    border: none;
+    color: #ddd;
+    border-radius: 7px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    font-size: 14px;
+    text-align: left;
+    transition: 0.2s ease;
+}
+
+.search-result:hover,
+.search-result.selected {
+    background: #2b2520;
+    color: #ff762b;
+}
+
+.search-result img {
+    width: 42px;
+    height: 42px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.search-result small {
+    margin-left: auto;
+    color: #888;
+}
+
+.search-footer {
+    padding: 15px;
+    border-top: 1px solid #302c28;
+    color: #888;
+    font-size: 11px;
+}
+
+/* Smooth opening animation */
+#searchModal[open] {
+    animation: searchAppear 0.25s ease;
+}
+
+@keyframes searchAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}

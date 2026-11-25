@@ -129,7 +129,7 @@
                     </path>
                 </g>
             </svg>
-            <input placeholder="Search" type="search" class="input">
+            <input placeholder="Search" type="search" class="input" id="openSearch" readonly>
         </div>
     </nav>
 
@@ -1040,12 +1040,25 @@
             <!-- <button class="footer-top-btn" aria-label="Back to top" onclick="window.scrollTo({top:0, behavior:'smooth'})">▲</button> -->
         </footer>
 
-
     </div>
+
+    <dialog id="searchModal">
+        <div class="search-top">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="search" id="modalSearch" placeholder="Search food, pages, categories..." autocomplete="off">
+            <button id="closeSearch" type="button">ESC</button>
+        </div>
+        <p class="search-label">JUMP TO</p>
+        <div id="searchResults"></div>
+        <div class="search-footer">
+            ↑ ↓ Navigate &nbsp; ↵ Select &nbsp; ESC Close
+        </div>
+    </dialog>
 
 
     <script src="Js/testi-carousel.js"></script>
     <script src="Js/app.js"></script>
+    <script src="Js/search.js"></script>
 
 
 </body>
