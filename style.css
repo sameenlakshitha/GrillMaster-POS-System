@@ -3228,13 +3228,18 @@ body {
     position: absolute;
     right: 15px;
     top: 15px;
+    display: grid;
+    place-items: center;
     width: 32px;
     height: 32px;
+    padding: 0;
     border: 1px solid #594331;
     border-radius: 50%;
     background: #2e241c;
     color: white;
     font-size: 22px;
+    line-height: 1;
+    letter-spacing: 0;
     cursor: pointer;
     transition: 0.3s;
 }
