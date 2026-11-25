@@ -170,6 +170,44 @@ checkoutForm.addEventListener("submit", event => {
         total: Number(cart.reduce((sum, item) => sum + item.price * item.quantity, 0).toFixed(2)),
         date: new Date().toLocaleString()
     };
-    checkoutStatus.textContent = "✓ Checkout details verified!";
-    checkoutStatus.style.color = "green";
+    completeOrder(pendingOrder);
+});
+
+const successModal = document.getElementById("successModal");
+function completeOrder(order) {
+    order.id = "GM-" + Date.now();
+    order.status = "Confirmed";
+    order.estimatedDelivery = "20 - 35 min";
+    order.createdAt = new Date().toISOString();
+    document.getElementById("successOrderId").textContent = "#" + order.id;
+    document.getElementById("successMessage").textContent =
+        "Thank you, " + order.customer + "! Your demo order has been successfully placed.";
+    document.getElementById("successPayment").textContent =
+        order.payment === "cash" ? "Cash on Delivery" : "Card (Demo)";
+    document.getElementById("successAddress").textContent = order.address;
+    document.getElementById("successTotal").textContent = "$" + order.total.toFixed(2);
+    checkoutModal.close();
+    successModal.showModal();
+    cart = [];
+    updateCart();
+    checkoutForm.reset();
+    document.getElementById("demoCard").hidden = true;
+    locationStatus.textContent = "";
+    checkoutStatus.textContent = "";
+    deliveryLocation = null;
+    pendingOrder = null;
+}
+document.getElementById("closeSuccess").addEventListener("click", () => {
+    successModal.close();
+});
+document.getElementById("continueExploring").addEventListener("click", () => {
+    successModal.close();
+    document.getElementById("menu").scrollIntoView({
+        behavior: "smooth"
+    });
+});
+successModal.addEventListener("click", event => {
+    if (event.target === successModal) {
+        successModal.close();
+    }
 });
