@@ -188,6 +188,7 @@ function completeOrder(order) {
     document.getElementById("successTotal").textContent = "$" + order.total.toFixed(2);
     checkoutModal.close();
     successModal.showModal();
+    startTracking(order);
     cart = [];
     updateCart();
     checkoutForm.reset();
@@ -210,4 +211,93 @@ successModal.addEventListener("click", event => {
     if (event.target === successModal) {
         successModal.close();
     }
+});
+
+const floatingTrack = document.getElementById("floatingTrack");
+const trackingModal = document.getElementById("trackingModal");
+const trackingSteps = document.querySelectorAll(".tracking-step");
+const DELIVERY_DURATION = 30 * 1000;
+let activeOrder = JSON.parse(localStorage.getItem("grillMasterActiveOrder")) || null;
+const trackingMessages = [
+    "Your order has been received.",
+    "Our chefs are preparing your delicious meal.",
+    "Your delivery is on the way!",
+    "Your order has been delivered. Enjoy your meal!"
+];
+function startTracking(order) {
+    activeOrder = {
+        id: order.id,
+        total: order.total,
+        startTime: Date.now(),
+        deliveryTime: Date.now() + DELIVERY_DURATION
+    };
+    localStorage.setItem("grillMasterActiveOrder", JSON.stringify(activeOrder));
+    updateTracking();
+}
+function updateTracking() {
+    if (!activeOrder) {
+        floatingTrack.classList.remove("show");
+        return;
+    }
+    floatingTrack.classList.add("show");
+    const now = Date.now();
+    const remaining = Math.max(0, activeOrder.deliveryTime - now);
+    const duration = activeOrder.deliveryTime - activeOrder.startTime;
+    const progress = 1 - remaining / duration;
+    let stage;
+    if (progress < 0.15) {
+        stage = 0;
+    } else if (progress < 0.65) {
+        stage = 1;
+    } else if (progress < 1) {
+        stage = 2;
+    } else {
+        stage = 3;
+    }
+    const seconds = Math.ceil(remaining / 1000);
+    const minutes = Math.floor(seconds / 60);
+    const secs = seconds % 60;
+    document.getElementById("trackingOrderId").textContent = "ORDER #" + activeOrder.id;
+    document.getElementById("trackingTotal").textContent = "$" + activeOrder.total.toFixed(2);
+    document.getElementById("trackingMessage").textContent = trackingMessages[stage];
+    document.getElementById("trackingCountdown").textContent =
+        stage === 3 ? "Delivered!" :
+        String(minutes).padStart(2, "0") + ":" + String(secs).padStart(2, "0");
+    document.getElementById("trackingProgressBar").style.width = ((stage + 1) * 25) + "%";
+    trackingSteps.forEach((step, index) => {
+        step.classList.toggle("active", index === stage && stage !== 3);
+        step.classList.toggle("completed", index < stage || stage === 3);
+    });
+    document.getElementById("trackingDone").textContent =
+        stage === 3 ? "Finish Order ✓" : "Continue Exploring →";
+    floatingTrack.querySelector("span").textContent =
+        stage === 3 ? "Order Delivered" : "Track My Order";
+}
+floatingTrack.addEventListener("click", () => {
+    updateTracking();
+    trackingModal.showModal();
+});
+document.getElementById("closeTracking").addEventListener("click", () => {
+    trackingModal.close();
+});
+document.getElementById("trackingDone").addEventListener("click", () => {
+    trackingModal.close();
+    if (activeOrder && Date.now() >= activeOrder.deliveryTime) {
+        localStorage.removeItem("grillMasterActiveOrder");
+        activeOrder = null;
+        floatingTrack.classList.remove("show");
+    }
+});
+trackingModal.addEventListener("click", event => {
+    if (event.target === trackingModal) {
+        trackingModal.close();
+    }
+});
+setInterval(updateTracking, 1000);
+updateTracking();
+
+document.getElementById("trackFromSuccess").addEventListener("click", () => {
+    successModal.close();
+    updateTracking();
+    trackingModal.showModal();
 });

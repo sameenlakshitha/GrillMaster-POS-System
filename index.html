@@ -1227,45 +1227,122 @@
     </dialog>
 
     <dialog id="successModal">
-    <div class="success-content">
-        <button id="closeSuccess" type="button" aria-label="Close confirmation">×</button>
-        <div class="success-check">
-            <i class="fa-solid fa-check"></i>
+        <div class="success-content">
+            <button id="closeSuccess" type="button" aria-label="Close confirmation">×</button>
+            <div class="success-check">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <h2>Order Successful!</h2>
+            <p id="successMessage"></p>
+            <div class="order-id">
+                ORDER <span id="successOrderId"></span>
+            </div>
+            <hr>
+            <div class="success-truck">🚚</div>
+            <p class="delivery-estimate-label">ESTIMATED DELIVERY TIME</p>
+            <h3 class="delivery-estimate">20 - 35 min</h3>
+            <p class="success-caption">Good food is worth the wait.</p>
+            <hr>
+            <div class="cart-summary-row">
+                <span>Payment Method</span>
+                <strong id="successPayment"></strong>
+            </div>
+            <div class="cart-summary-row">
+                <span>Delivery Address</span>
+                <span id="successAddress"></span>
+            </div>
+            <div class="cart-summary-row">
+                <span>Delivery Fee</span>
+                <span style="color: green;">FREE</span>
+            </div>
+            <div class="cart-summary-row cart-total">
+                <span>Order Total</span>
+                <span id="successTotal"></span>
+            </div>
+            <button id="trackFromSuccess" type="button">
+                <i class="fa-solid fa-truck-fast"></i> Track My Order
+            </button>
+            <button id="continueExploring" type="button">
+                Continue Exploring →
+            </button>
+            <p class="success-caption">Made with love. Delivered with care. ❤️</p>
+            <small class="success-caption">Demo order — no real payment or delivery.</small>
         </div>
-        <h2>Order Successful!</h2>
-        <p id="successMessage"></p>
-        <div class="order-id">
-            ORDER <span id="successOrderId"></span>
+    </dialog>
+
+    <button id="floatingTrack" type="button">
+        <i class="fa-solid fa-truck-fast"></i>
+        <span>Track My Order</span>
+        <span class="track-live-dot"></span>
+    </button>
+    <dialog id="trackingModal">
+        <div class="tracking-header">
+            <div>
+                <h2>Track Your Order</h2>
+                <p id="trackingOrderId"></p>
+            </div>
+            <button id="closeTracking" type="button" aria-label="Close tracking">×</button>
         </div>
-        <hr>
-        <div class="success-truck">🚚</div>
-        <p class="delivery-estimate-label">ESTIMATED DELIVERY TIME</p>
-        <h3 class="delivery-estimate">20 - 35 min</h3>
-        <p class="success-caption">Good food is worth the wait.</p>
-        <hr>
-        <div class="cart-summary-row">
-            <span>Payment Method</span>
-            <strong id="successPayment"></strong>
+        <div class="tracking-banner">
+            <div class="tracking-truck">🚚</div>
+            <p>ESTIMATED ARRIVAL</p>
+            <h2 id="trackingCountdown">30:00</h2>
+            <span id="trackingMessage">Your order has been received.</span>
         </div>
-        <div class="cart-summary-row">
-            <span>Delivery Address</span>
-            <span id="successAddress"></span>
+        <div class="tracking-progress">
+            <div id="trackingProgressBar"></div>
         </div>
-        <div class="cart-summary-row">
-            <span>Delivery Fee</span>
-            <span style="color: green;">FREE</span>
+        <div class="tracking-timeline">
+            <div class="tracking-step">
+                <div class="tracking-icon">
+                    <i class="fa-solid fa-receipt"></i>
+                </div>
+                <div>
+                    <h4>Order Confirmed</h4>
+                    <p>We've received your order.</p>
+                </div>
+            </div>
+            <div class="tracking-step">
+                <div class="tracking-icon">
+                    <i class="fa-solid fa-utensils"></i>
+                </div>
+                <div>
+                    <h4>Preparing Your Food</h4>
+                    <p>Our chefs are working their magic.</p>
+                </div>
+            </div>
+            <div class="tracking-step">
+                <div class="tracking-icon">
+                    <i class="fa-solid fa-motorcycle"></i>
+                </div>
+                <div>
+                    <h4>Out for Delivery</h4>
+                    <p>Your delicious food is on its way.</p>
+                </div>
+            </div>
+            <div class="tracking-step">
+                <div class="tracking-icon">
+                    <i class="fa-solid fa-house"></i>
+                </div>
+                <div>
+                    <h4>Delivered</h4>
+                    <p>Enjoy every delicious bite!</p>
+                </div>
+            </div>
         </div>
-        <div class="cart-summary-row cart-total">
-            <span>Order Total</span>
-            <span id="successTotal"></span>
+        <div class="tracking-details">
+            <div class="cart-summary-row">
+                <span>Order Total</span>
+                <strong id="trackingTotal"></strong>
+            </div>
+            <div class="cart-summary-row">
+                <span>Delivery Fee</span>
+                <strong style="color: green;">FREE</strong>
+            </div>
         </div>
-        <button id="continueExploring" type="button">
-            Continue Exploring →
-        </button>
-        <p class="success-caption">Made with love. Delivered with care. ❤️</p>
-        <small class="success-caption">Demo order — no real payment or delivery.</small>
-    </div>
-</dialog>
+        <button id="trackingDone" type="button">Continue Exploring →</button>
+        <p class="tracking-disclaimer">Demo tracking — simulated delivery progress.</p>
+    </dialog>
 
     <script src="Js/testi-carousel.js"></script>
     <script src="Js/app.js"></script>
