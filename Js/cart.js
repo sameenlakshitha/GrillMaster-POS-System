@@ -1,4 +1,4 @@
-const foodCards = document.querySelectorAll(".foodcard");
+const foodCards = document.querySelectorAll(".menu-grid .foodcard");
 const floatingCart = document.getElementById("floatingCart");
 const cartModal = document.getElementById("cartModal");
 const cartItems = document.getElementById("cartItems");
