@@ -53,7 +53,7 @@
         <p class="address" style="text-indent: 5px;"><img width="15px"
                 src="assets/pics/location-map-marker-yellow-23461_1024.png" alt="address">Address: 42 Flavor Street</p>
         <div class="top-right">
-            <button class="delivery-btn">🚚 Free Delivery Today!</button>
+            <button class="delivery-btn" id="openDelivery" type="button">🚚 Free Delivery Today!</button>
             <div class="social-icons">
                 <!-- <img src="assets/pics/fb.jpeg" width="40" alt="facebook">
                 <img src="assets/pics/insta.jpeg" width="40" alt="instagram">
@@ -106,7 +106,7 @@
                 </svg>
             </div>
             <div class="sarab-text">
-                <h1 class="sarab-title">Sar<span class="sarab-ab">ab</span></h1>
+                <h1 class="sarab-title">Grill<span class="sarab-ab">MASTER</span></h1>
                 <p class="sarab-sub">Fast Food &amp; Restaurant</p>
             </div>
         </div>
@@ -1055,10 +1055,84 @@
         </div>
     </dialog>
 
+    <dialog id="deliveryModal" aria-labelledby="deliveryTitle">
 
+    <div class="delivery-popup">
+
+        <button id="closeDelivery" type="button"
+                aria-label="Close offer">×</button>
+
+        <div class="delivery-offer-tag">
+            ✦ EXCLUSIVE TODAY'S OFFER
+        </div>
+
+        <div class="delivery-truck">🚚</div>
+
+        <h1 id="deliveryTitle">FREE DELIVERY</h1>
+
+        <h3>Good food. Zero delivery fees.</h3>
+
+        <p class="delivery-description">
+            Your favourite meals, delivered straight
+            to your doorstep without the extra cost.
+        </p>
+
+        <p class="delivery-timer-label">
+            OFFER ENDS AT MIDNIGHT
+        </p>
+
+        <div class="delivery-countdown">
+
+            <div class="delivery-time">
+                <span id="deliveryHours">00</span>
+                <small>HOURS</small>
+            </div>
+
+            <div class="delivery-time">
+                <span id="deliveryMinutes">00</span>
+                <small>MINUTES</small>
+            </div>
+
+            <div class="delivery-time">
+                <span id="deliverySeconds">00</span>
+                <small>SECONDS</small>
+            </div>
+        </div>
+
+        <div class="delivery-promo">
+            <div>
+                <small>PROMO CODE</small>
+                <h2 id="deliveryCode">FREEDEL</h2>
+            </div>
+            <button id="copyDeliveryCode" type="button">
+                <i class="fa-regular fa-copy"></i> Copy
+            </button>
+        </div>
+
+        <button id="deliveryExplore" type="button">
+            Explore Our Menu →
+        </button>
+
+        <p class="delivery-bottom-text">
+            Made with love. Delivered with care. ❤️
+        </p>
+    </div>
+
+</dialog>
+
+<button class="back-top-btn" id="backToTop"
+        type="button" aria-label="Back to top">
+    <svg class="svgIcon" viewBox="0 0 384 512">
+        <path
+            d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z">
+        </path>
+    </svg>
+
+</button>
     <script src="Js/testi-carousel.js"></script>
     <script src="Js/app.js"></script>
     <script src="Js/search.js"></script>
+    <script src="Js/delivery.js"></script>
 
 
 </body>

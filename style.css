@@ -3159,3 +3159,274 @@ body {
         transform: scale(1) translateY(0);
     }
 }
+
+/* FREE DELIVERY POPUP */
+
+
+#deliveryModal {
+    width: 460px;
+    max-width: 92vw;
+    max-height: 90vh;
+    box-sizing: border-box;
+    margin: auto;
+    padding: 0;
+    border: 1px solid #72502b;
+    border-radius: 24px;
+    background: #191410;
+    color: white;
+    font-family: 'Nunito', sans-serif;
+    box-shadow: 0 25px 100px rgba(0, 0, 0, 0.6);
+    overflow: auto;
+}
+
+/* Blurred website background */
+
+#deliveryModal::backdrop {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Popup container */
+
+.delivery-popup {
+    position: relative;
+    text-align: center;
+    padding: 35px 30px 25px;
+    background: radial-gradient(
+        ellipse at top,
+        #3d2818,
+        #191410 65%
+    );
+}
+
+/* Close button */
+
+#closeDelivery {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    width: 32px;
+    height: 32px;
+    border: 1px solid #594331;
+    border-radius: 50%;
+    background: #2e241c;
+    color: white;
+    font-size: 22px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#closeDelivery:hover {
+    background: #e53935;
+    transform: rotate(90deg);
+}
+
+/* Offer label */
+
+.delivery-offer-tag {
+    display: inline-block;
+    color: #ffbd59;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    border: 1px solid #77532d;
+    background: rgba(255, 183, 77, 0.08);
+    padding: 8px 14px;
+    border-radius: 30px;
+}
+
+/* Animated delivery truck */
+
+.delivery-truck {
+    font-size: 85px;
+    margin: 15px 0;
+    filter: drop-shadow(0 8px 20px rgba(255, 174, 0, 0.2));
+    animation: deliveryTruck 1.8s ease-in-out infinite;
+}
+
+@keyframes deliveryTruck {
+    0%, 100% {
+        transform: translateY(0) rotate(-3deg);
+    }
+
+    50% {
+        transform: translateY(-8px) rotate(3deg);
+    }
+}
+
+/* Main headings */
+
+.delivery-popup h1 {
+    font-family: 'Abril Fatface', serif;
+    font-size: clamp(30px, 8vw, 40px);
+    font-weight: 400;
+    margin: 0;
+    color: #ffffff;
+}
+
+.delivery-popup h3 {
+    color: #ffbd59;
+    font-size: 18px;
+    margin: 8px 0 15px;
+}
+
+.delivery-description {
+    color: #b9ada1;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+/* Countdown timer */
+
+.delivery-timer-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    color: #b7a38e;
+    margin-top: 25px;
+}
+
+.delivery-countdown {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 15px 0 25px;
+}
+
+.delivery-time {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 8px;
+    border-radius: 12px;
+    border: 1px solid #513b28;
+    background: linear-gradient(
+        145deg,
+        #38291e,
+        #241c16
+    );
+}
+
+.delivery-time span {
+    display: block;
+    font-size: 32px;
+    font-weight: 900;
+    color: #ffc46b;
+    font-variant-numeric: tabular-nums;
+}
+
+.delivery-time small {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #a99783;
+}
+
+/* Promo code */
+
+.delivery-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px dashed #947041;
+    border-radius: 12px;
+    padding: 15px;
+    background: rgba(255, 183, 77, 0.04);
+    text-align: left;
+}
+
+.delivery-promo small {
+    color: #b4a18d;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+.delivery-promo h2 {
+    margin: 5px 0 0;
+    color: #ffc46b;
+    letter-spacing: 3px;
+    font-size: 24px;
+}
+
+/* Copy button */
+
+#copyDeliveryCode {
+    background: #3c2c1d;
+    color: #ffca7d;
+    border: 1px solid #70502e;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Nunito', sans-serif;
+    transition: 0.3s;
+}
+
+#copyDeliveryCode:hover {
+    background: #ffbd59;
+    color: #191410;
+}
+
+/* Explore menu button */
+
+#deliveryExplore {
+    width: 100%;
+    margin-top: 20px;
+    padding: 16px;
+    background: linear-gradient(
+        135deg,
+        #ff583b,
+        #d62222
+    );
+    border: none;
+    border-radius: 12px;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(229, 57, 35, 0.25);
+    transition: 0.3s ease;
+}
+
+#deliveryExplore:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(229, 57, 35, 0.45);
+}
+
+.delivery-bottom-text {
+    font-size: 11px;
+    color: #948576;
+    margin: 20px 0 0;
+}
+
+/* Popup opening animation */
+
+#deliveryModal[open] {
+    animation: deliveryAppear 0.4s
+        cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes deliveryAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.85) translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+@media (max-width: 450px) {
+    .delivery-popup {
+        padding: 40px 18px 22px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .delivery-truck,
+    #deliveryModal[open] {
+        animation: none;
+    }
+}

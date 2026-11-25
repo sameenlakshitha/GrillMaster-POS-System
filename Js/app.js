@@ -19,3 +19,7 @@ videoModal.addEventListener("close", () => {
     introVideo.pause();
     introVideo.currentTime = 0;
 });
+
+// function delivery(){
+
+// }
